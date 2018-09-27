@@ -12,7 +12,8 @@ const persistConfig = {
     key: 'root',
     storage,
     blacklist: [
-      'selectedMovie'
+      'navigation',
+      'body'
       ]
     }
   

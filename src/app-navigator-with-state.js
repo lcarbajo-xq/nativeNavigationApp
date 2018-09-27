@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-    reduxifyNavigator
+    reduxifyNavigator,
 } from 'react-navigation-redux-helpers';
 
 import AppNavigator from './app-navigator';

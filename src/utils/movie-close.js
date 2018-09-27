@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-        View,
         Text,
         StyleSheet,
         TouchableOpacity
@@ -11,9 +10,7 @@ function MovieClose (props){
         <TouchableOpacity 
             style={ styles.container } 
             onPress={ props.onPress }>
-            <View style={ styles.button }>
-                <Text>X</Text>
-            </View>
+            <Text style={styles.button}>X</Text>
         </TouchableOpacity>
     )
 }

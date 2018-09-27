@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { FlatList, Text } from 'react-native';
-
-import CLayout from '../components/categories-layout'
-import Empty from '../components/empty';
-import Separator from '../../sections/components/horizontal-separator';
-import Category from '../components/category';
+import SLLayout from '../../videos/components/suggestion-list-layout';
+import Empty from '../../videos/components/empty';
+import Separator from '../../videos/components/vertical-separator';
+import Suggestion from '../../videos/components/suggestion';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
 
@@ -14,43 +13,43 @@ function mapStateToProps(state) {
   }
 }
 
-class CategorieList extends Component {
+class Category extends Component {
   keyExtractor = item => item.id.toString()
   renderEmpty = () => <Empty text="No hay sugerencias"/>
   itemSeparator = () => <Separator />
-  viewCategory = (item) => {
+  viewMovie = (item) => {
+    this.props.dispatch({
+      type: 'SET_SELECTED_MOVIE',
+      payload: {
+        movie: item,
+      }
+    })
     this.props.dispatch(
       NavigationActions.navigate({
-        routeName: 'Category',
-        params: {
-          genre: item.genres[0]
-        }
+        routeName: 'Movie'
       })
     )
   }
   renderItem = ({item}) => {
     return (
-      <Category 
-        onPress={ () => { this.viewCategory(item) } }
-        {...item}
-      />
+      <Suggestion {...item} onPress={ () => { this.viewMovie(item) } } />
     )
   }
+
   render(){
     return (
-      <CLayout
-        title="Categorías">
+      <SLLayout
+      title={`${this.props.navigation.getParam("genre", "Category")}`}>
         <FlatList
-          horizontal
           keyExtractor={this.keyExtractor}
           data={this.props.list}
           ListEmptyComponent= {this.renderEmpty}
           ItemSeparatorComponent={this.itemSeparator}
           renderItem={this.renderItem}
         />
-      </CLayout>
+      </SLLayout>
     )
   }
 }
 
-export default connect (mapStateToProps)(CategorieList);
+export default connect(mapStateToProps)(Category);

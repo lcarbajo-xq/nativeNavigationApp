@@ -39,26 +39,26 @@ function MovieDetails (props){
         <ScrollView>
             <View style={styles.container}>
                 <View style={styles.left}>
-                    {/* <Image
+                    <Image
                         style={styles.cover}
                         source={{
                             uri: props.movie.medium_cover_image
                         }}
-                    /> */}
+                    />
                     <View style={styles.genre}>
-                        <Text style={styles.genreText}>2001</Text>
+                        <Text style={styles.genreText}>{ props.movie.year }</Text>
                     </View>
                 </View>
                 <View style={styles.details}>
-                    <Text style={styles.title}>Titulo</Text>
+                    <Text style={styles.title}>{ props.movie.title }</Text>
                     <ScrollView style={styles.synopsis}>
-                        <Text style={ styles.synopsis_text }>Synopsis</Text>
+                        <Text style={ styles.synopsis_text }>{ props.movie.synopsis }</Text>
                     </ScrollView>
                 </View>
             </View>
-            {/* <View style={ styles.trailer }>
+            <View style={ styles.trailer }>
                 <WebView source={{html: makeHTML(props.movie.yt_trailer_code) }}/>
-            </View> */}
+            </View>
         </ScrollView>
     )
 }

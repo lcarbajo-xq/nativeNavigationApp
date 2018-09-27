@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import {
         Text,
+        StatusBar
         } from 'react-native';
 
 import { connect } from 'react-redux';
@@ -14,10 +15,14 @@ import Movie from '../../screens/containers/movie';
 class Home extends Component {
     static navigationOptions = () => {
       return {
-        header: Header
+        header: Header,
+        title: 'Inicio'
       }
     }
     async componentDidMount() {
+        this.focus = this.props.navigation.addListener('didFocus', () => {
+            StatusBar.setBarStyle('dark-content');
+          })
         const movies =  await API.getSuggestion(10);
         this.props.dispatch({
           type:'SET_MOVIE_LIST',
@@ -34,8 +39,12 @@ class Home extends Component {
           }
         })
       }
+      componentWillUnmount() {
+          this.focus.remove();
+      }
     render() {
         if (this.props.isSelectedMovie) {
+            console.log('VOY A MOVIE')
             return <Movie />
         } else {
             return (
