@@ -44,7 +44,6 @@ class Home extends Component {
       }
     render() {
         if (this.props.isSelectedMovie) {
-            console.log('VOY A MOVIE')
             return <Movie />
         } else {
             return (

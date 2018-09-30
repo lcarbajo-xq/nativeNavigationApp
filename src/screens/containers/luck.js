@@ -6,8 +6,15 @@ import {
   StatusBar,
 } from 'react-native';
 import Searcher from '../../sections/containers/searcher';
-
+import IconDraw from '../../sections/components/icon-tab';
 class Luck extends Component {
+  static navigationActions = () => {
+    return {
+      title: 'Tener suerte',
+      tabBarIcon: <IconTab icon="🍀"/>,
+      drawerIcon: <IconTab icon="🍀"/>
+    }
+  }
   componentDidMount(){
     this.focus = this.props.navigation.addListener('didFocus', () => {
       StatusBar.setBarStyle('dark-content');

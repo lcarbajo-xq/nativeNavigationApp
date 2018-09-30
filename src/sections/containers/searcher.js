@@ -5,6 +5,7 @@ import {
 import React, { Component } from 'react';
 import API from '../../utils/api';
 import { connect } from 'react-redux';
+import { NavigationActions } from 'react-navigation';
 
 class Searcher extends Component {
     state = {
@@ -12,13 +13,17 @@ class Searcher extends Component {
     }
     handleSubmit = async () => {
         const movies = await API.getSearchedMovie(this.state.text);
-        console.log(movies);
         this.props.dispatch({
             type: 'SET_SELECTED_MOVIE',
             payload: {
                 movie: movies[0],
             }
         })
+        this.props.dispatch(
+            NavigationActions.navigate({
+                routeName:'Movie'
+            })
+        )
     }
     handleChangeText = (text) => {
         this.setState({

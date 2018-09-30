@@ -12,6 +12,6 @@ export default function reducers (state = {}, action) {
       return {...state, selectedMovie: action.payload.movie }
     }
     default:
-      return state
+        return state
     }
 }

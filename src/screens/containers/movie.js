@@ -1,4 +1,5 @@
 import React from 'react';
+import { SafeAreaView } from 'react-native';
 import MovieLayout from '../components/movie-layout';
 import Player from '../../videos/containers/player';
 import Header from '../../sections/components/header.js';
@@ -37,10 +38,12 @@ class Movie extends React.Component {
     }
     render(){
       return (
-        <MovieLayout>
-            <Player />
-            <MovieDetails movie={ this.props.movie }/>
-        </MovieLayout>
+        <SafeAreaView>
+            <MovieLayout>
+                <Player />
+                <MovieDetails movie={ this.props.movie }/>
+            </MovieLayout>
+        </SafeAreaView>
       )
   }
 }

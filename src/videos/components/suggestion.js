@@ -21,7 +21,7 @@ function Suggestion (props) {
             }}
           />
           <View style={styles.genre}>
-            <Text style={styles.genreText}>{props.genres[0]}</Text>
+            <Text style={styles.genreText}>{props.genres && props.genres[0]}</Text>
           </View>
         </View>
         <View style={styles.right}>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     color: '#44546b',
   },
   year: {
-    backgroundColor: '#70b124',
+    backgroundColor: '#e74c3c',
     paddingVertical: 4,
     paddingHorizontal: 6,
     fontSize: 11,

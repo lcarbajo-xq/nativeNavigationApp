@@ -23,6 +23,7 @@ import { store, persistor }  from './src//utils/store';
 
 import AppLayout from './src/app';
 import AppNavigatorWithState from './src/app-navigator-with-state';
+console.disableYellowBox = true;
 
 // type Props = {};
 export default class App extends Component{

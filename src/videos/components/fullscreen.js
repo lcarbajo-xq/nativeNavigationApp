@@ -23,7 +23,7 @@ function FullSreen (props) {
         right: 5,
       }}>
       <View>
-        <Icon name="fullscreen" size={30} color="white"/>
+        <Text>FS</Text>
       </View>
     </TouchableHighlight>
   )
