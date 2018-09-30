@@ -4,12 +4,13 @@ import {
     reduxifyNavigator,
 } from 'react-navigation-redux-helpers';
 
+import { BackHandler } from 'react-native';
+
 import AppNavigator from './app-navigator';
 
 const reduxifiedApp = reduxifyNavigator(AppNavigator, 'root');
 
 class AppNavigatorWithState extends reduxifiedApp {
-   
 }
 
 function mapStateToProps(state){
